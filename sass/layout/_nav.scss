@@ -1,0 +1,26 @@
+.nav {
+
+    flex: 2 1 auto; 
+    font-size: 1rem;
+    background-color: $colour-fond-sombre;
+    padding: 1.5rem;
+    & h3 {
+        color: $colour-text-fond-sombre;
+    }
+    &__link {  
+        list-style-type : none;
+        & a{
+        text-decoration: none;
+        color: $colour-text-fond-sombre;
+        }
+        /*&--active {
+            color: $colour-secondary;
+            &:hover{
+                color: $colour-secondary;
+            }
+        }*/
+        & a:hover{
+            color: $colour-white;
+        }
+    }
+}

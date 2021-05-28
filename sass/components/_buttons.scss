@@ -1,0 +1,56 @@
+.bouton_explorer {
+    margin: 1.5rem 0 3rem 0;
+    border-radius: 2em;
+    border: 0;
+    box-shadow: 3px 3px 3px $colour-shadow-btn;
+    font-size: 0.9em;
+    color: #fff;
+    padding: 1rem;
+    background-image: radial-gradient(ellipse farthest-corner at 18px 0, $colour-secondary 0%, $colour-primary 100%);
+    cursor: pointer;
+
+    &:hover{
+        background: $colour-primary;
+        color: $colour-accent;
+    }
+}
+
+.fonctionnment__bloc {
+    display: flex;
+    margin: 1.5rem 0 25px 0;
+    padding: 1.8rem 0 1.3rem 0;
+    background-color: $colour-fond2;
+    align-items: center; /* alignement vertical*/
+
+    border-radius: 1.5rem;
+    box-shadow: 3px 3px 10px $colour-fond1; /* ombre porté */
+
+
+    &--num {
+        color: #fff;
+        background-color: $colour-primary;
+        border: 1px solid $colour-primary;
+        border-radius: 50%;
+        padding: 4px 8px 4px 8px;
+        margin: 0 1.5rem 0 -12px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    &--icone {
+
+        font-size: 1.8rem;
+        color: $colour-text-leger;
+        &:hover {
+            color: #9356DC;
+        }
+    }
+    &--lib {
+        font-size: 1.4rem;
+        margin-left: 2rem;
+        font-weight: bold;
+    }
+    &:hover {
+        background-color: #d7c9e9;
+        box-shadow: 3px 3px 20px #c6bfbf;
+    }
+}
