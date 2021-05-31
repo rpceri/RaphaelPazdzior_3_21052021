@@ -1,13 +1,14 @@
-header, main, footer {
+header, main {
     align-items: center;
     max-width: 1140px;
     margin: auto;
 }
+
 /*
 .container {
     margin: $layout-margin;
     padding: $grid-gutter $grid-gutter 0 $grid-gutter;
-    @include border($colour-accent);
+    @include border(red);
 }
 */
 
@@ -53,6 +54,12 @@ header, main, footer {
         padding-left: 10px;
     }
     padding: 10px 0 20px;
+}
+
+.restaurants {
+    & h1 {
+            padding-left: 10px;
+    }
 }
 
 .listeFonctionnment {

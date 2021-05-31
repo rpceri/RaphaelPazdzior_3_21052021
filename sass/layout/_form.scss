@@ -3,14 +3,14 @@
     padding-bottom: $grid-gutter;
     &__heading {
         width: 100%;
-        color: $colour-white;
+        color: white;
         background: $colour-primary;
         line-height: 5rem;
         padding: $grid-gutter;
     }
     &__field {
         & label {
-            color: $colour-accent;
+            color: red;
             display: block;
             font-size: 2rem;
             line-height: 2rem;
@@ -21,7 +21,7 @@
             background: $colour-secondary;
             @include border;
             padding: $grid-gutter;
-            color: $colour-accent;
+            color: red;
             font-weight: 900;
             font-style: italic;
             font-size: 2.75rem;

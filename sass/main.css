@@ -5,6 +5,29 @@
 /* gris foncé */
 /* gris clair */
 /* $heading-shadow-size: .55rem; */
+/*@function lightness-shift($colour) {
+    @if (lightness($colour) < 25%){
+        @return lighten($colour, 10%);
+    }@else{
+        @return darken($colour, 10%);
+    }
+}*/
+/*
+@mixin img-ratio {
+    width: 100%;
+        display: block;
+        overflow: hidden;
+        padding-top: 56.5%;
+        position: relative;
+        & img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            transform: translate(-50%, -50%);
+        }
+}
+*/
 *,
 *::after,
 *::before {
@@ -135,7 +158,7 @@ button {
         font-size: 7rem;
         color: $colour-secondary;
         margin-left: 10rem;
-        @include heading-shadow($colour-white);
+        @include heading-shadow($white);
     }
 }*/
 /*
@@ -188,7 +211,7 @@ header {
   color: grey;
 }
 
-header, main, footer {
+header, main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -200,7 +223,7 @@ header, main, footer {
 .container {
     margin: $layout-margin;
     padding: $grid-gutter $grid-gutter 0 $grid-gutter;
-    @include border($colour-accent);
+    @include border(red);
 }
 */
 .lieuEtFctionnment {
@@ -259,6 +282,10 @@ header, main, footer {
   padding-left: 10px;
 }
 
+.restaurants h1 {
+  padding-left: 10px;
+}
+
 .listeFonctionnment {
   max-width: 400px;
   margin: auto;
@@ -270,14 +297,14 @@ header, main, footer {
     padding-bottom: $grid-gutter;
     &__heading {
         width: 100%;
-        color: $colour-white;
+        color: white;
         background: $colour-primary;
         line-height: 5rem;
         padding: $grid-gutter;
     }
     &__field {
         & label {
-            color: $colour-accent;
+            color: red;
             display: block;
             font-size: 2rem;
             line-height: 2rem;
@@ -288,7 +315,7 @@ header, main, footer {
             background: $colour-secondary;
             @include border;
             padding: $grid-gutter;
-            color: $colour-accent;
+            color: red;
             font-weight: 900;
             font-style: italic;
             font-size: 2.75rem;
@@ -308,14 +335,14 @@ header, main, footer {
         }
     }
 }*/
-#restaurants {
+.restaurants {
   padding-top: 10px;
   /*background-color: orange !important;*/
 }
 
 /*sur grand écran = desktop */
 @media screen and (min-width: 1024px) {
-  #hebergements .produits, #restaurants .produits {
+  #hebergements .produits, .restaurants .produits {
     /* pour que les produits s'affiches à la suite en mode desktop */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -323,37 +350,24 @@ header, main, footer {
     /* flex-direction: row; par defaut */
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     /*les éléments sont séparés avec de l'espace entre eux ;.*/
   }
-  #restaurants .vignetteHaute {
+  .restaurants .vignetteHaute {
     height: 90%;
   }
-  #restaurants .vignetteHaute .imgbg {
+  .restaurants .vignetteHaute .imgbg {
     background-size: 24.7em !important;
     height: 260px !important;
   }
 }
 
-#restaurants .container .produits__lien__produit {
-  padding: 0px;
-}
-
-#restaurants .container .produits__lien__produit .desc-produit {
+.restaurants .produits__lien__produit .desc-produit {
   padding: 0 0 10px 10px;
 }
 
-/*  encadré activités : idem hébergement, sauf que pas de prix ni de star,e t photo en grand une ligne sur 2 en mod desktopla photo est en haut au lieu de'a gauche => changement d direction du flex*/
-#restaurants .produits__lien__produit {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-#restaurants .container .produits__lien__produit .imgbg {
+.restaurants .produits__lien__produit .imgbg {
   border-radius: 20px 20px 0 0;
   background-size: 100%;
   width: 100%;
@@ -369,11 +383,11 @@ header, main, footer {
   background-color: aqua;
 }
 
-#restaurants .container .produits .desc-produit {
+.restaurants .produits .desc-produit {
   margin-top: 10px;
 }
 
-#restaurants .container .produits .desc-produit p {
+.restaurants .produits .desc-produit p {
   margin: 0px;
   font-size: 1.54rem;
 }
@@ -396,7 +410,11 @@ header, main, footer {
 }
 
 /* arrondi fond blanc */
-.container .produits__lien__produit {
+.restaurants .produits__lien__produit {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

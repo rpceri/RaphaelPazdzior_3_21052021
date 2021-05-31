@@ -1,36 +1,31 @@
 
-#restaurants{ padding-top : 10px;  /*background-color: orange !important;*/}
+.restaurants{ padding-top : 10px;  /*background-color: orange !important;*/}
 
 /*sur grand écran = desktop */
 @media screen and (min-width: 1024px) { 
 
-    #hebergements .produits,  #restaurants .produits { /* pour que les produits s'affiches à la suite en mode desktop */
+    #hebergements .produits,  .restaurants .produits { /* pour que les produits s'affiches à la suite en mode desktop */
         display: flex; /* flex-direction: row; par defaut */
         flex-wrap: wrap;
-        justify-content: space-between; /*les éléments sont séparés avec de l'espace entre eux ;.*/
+        justify-content: space-around; /*les éléments sont séparés avec de l'espace entre eux ;.*/
     }
-    #restaurants .vignetteHaute {
+    .restaurants .vignetteHaute {
         height:90%;
     }
-    #restaurants .vignetteHaute .imgbg {
+    .restaurants .vignetteHaute .imgbg {
         background-size: 24.7em !important;
         height: 260px !important;
     }
 }
 
-#restaurants .container .produits__lien__produit {
-    padding: 0px;
-}
-#restaurants .container .produits__lien__produit .desc-produit {
+
+.restaurants .produits__lien__produit .desc-produit {
     padding: 0 0 10px 10px;
 
 }
 
-/*  encadré activités : idem hébergement, sauf que pas de prix ni de star,e t photo en grand une ligne sur 2 en mod desktopla photo est en haut au lieu de'a gauche => changement d direction du flex*/
-#restaurants .produits__lien__produit {
-    flex-direction: column;
-}
-#restaurants .container .produits__lien__produit .imgbg {
+
+.restaurants .produits__lien__produit .imgbg {
     border-radius: 20px 20px 0 0;
     background-size: 100%;
     width: 100%;
@@ -38,15 +33,15 @@
 }
 .produits__lien{
     text-decoration: none;
-    color: $colour-accent;
+    color: $colour-lien-produit;
 }
 .produits__lien:hover{
     background-color: aqua;
 }
-#restaurants .container .produits .desc-produit {
+.restaurants .produits .desc-produit {
     margin-top: 10px;
 }
-#restaurants .container .produits .desc-produit p {
+.restaurants .produits .desc-produit p {
     margin: 0px;
     font-size: 1.54rem;
 }
@@ -58,7 +53,9 @@
 #Activimgbg4 { background-image: url("../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");}
 
 /* arrondi fond blanc */
-.container .produits__lien__produit {
+.restaurants .produits__lien__produit {
+    flex-direction: column;
+
     display: flex;
     background-color:white;
     border-radius: 20px;
