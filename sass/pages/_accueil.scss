@@ -45,14 +45,15 @@
     }
 
     & .fonctionnment {
-        padding: 10px 0 20px;
+        padding: 30px 0 20px;
         @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
-
             padding:  0;
-         }
+        }
         /*background-color: yellow;*/
         /* grid-template-columns: 1fr 90% 1fr;*/
-         & h1 {
+         & .titre_fonctionnment {
+             font-weight: bold;
+             font-size: 1.2em;
              padding-left: 10px;
              @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
                 text-align: center;
@@ -63,7 +64,7 @@
          & .listeFonctionnment {
             max-width:400px;
             margin : auto;
-            padding: 20px;
+            padding: 0 20px;
         }
      }
 }
@@ -75,7 +76,9 @@
     padding-top : 10px;
     background-color: $colour-fond2;
 
-    & h1 {
+    & .restaurants-titre {
+        font-weight: bold;
+        font-size: 1.2em;
         padding-left: 10px;
     }
     & .restaurants-liste {
@@ -142,35 +145,12 @@
                     padding: 0 0 10px 10px;
                     margin-top: 10px;
                     position: relative; /* pour pouvoir mettre les 2 autre ci dessous en absolute */
-                    &  p {
+                    & p {
                         margin: 0px;
                         font-size: 1.54rem;
                     }
-                    & .desc-produit__heart {
-                        position: absolute;
-                        font-size: 2rem;
-                        right: 2rem;
-                        bottom: 2rem;
-                    }
-                    & .desc-produit__heart-animee {
-                        position: absolute;
-                        opacity: 0;
-                        font-size: 1.95rem;
-                        right: 2rem;
-                        bottom: 2rem;
-                        &:hover{
-                            opacity:1;
-                            transition:opacity 1s
-                        }
-                        /*&:hover::after{
-                            color:$colour-secondary;
-                            background-color: $colour-secondary;
-                        }*/
-                        & .heart-degrade {
-                            background: -webkit-gradient(linear, left top, left bottom, from($colour-primary), to($colour-secondary));
-                            -webkit-background-clip: text; /* pour que le changement de fon ne s'applique qu'a l'interieur*/
-                            -webkit-text-fill-color: transparent;
-                        }
+                    &__heart {
+                        @include heart();
                     }
                 }
             } 

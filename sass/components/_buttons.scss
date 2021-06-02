@@ -5,12 +5,16 @@
     box-shadow: 3px 3px 3px $colour-shadow-btn;
     font-size: 0.9em;
     color: #fff;
-    padding: 1rem;
-    background-image: radial-gradient(ellipse farthest-corner at 18px 0, $colour-secondary 0%, $colour-primary 100%);
+    padding: 1rem 1.9rem;
+    background-image: radial-gradient(ellipse farthest-corner at 100px 0, $colour-secondary 0%, $colour-primary 100%);
     cursor: pointer;
+    min-width: 12em;
+    font-weight: bold;
+ 
 
     &:hover{
-        background: $colour-primary;
+        /*background: $colour-primary;*/
+        opacity: 80%;
         color: $colour-accent;
     }
 }

@@ -4,27 +4,34 @@
     font-size: 1rem;
     background-color: $colour-fond-sombre;
     padding: 1.5rem;
-    & h3 {
-        color: $colour-text-fond-sombre;
-    }
-    &__link {  
-        list-style-type : none;
-        & a{
-        text-decoration: none;
-        color: $colour-text-fond-sombre;
+    &-ul {
+        @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-around;
         }
-        /*&--active {
-            color: $colour-secondary;
-            &:hover{
-                color: $colour-secondary;
+        &__link {  
+            list-style-type : none;
+            & a{
+            text-decoration: none;
+            color: $colour-text-fond-sombre;
             }
-        }*/
-        & a:hover{
-            color: $colour-text-fond-sombre-survole;
+            /*&--active {
+                color: $colour-secondary;
+                &:hover{
+                    color: $colour-secondary;
+                }
+            }*/
+            & a:hover{
+                color: $colour-text-fond-sombre-survole;
+            }
         }
     }
+
     &__titre-footer {
-        font-style: italic;
+        font-family: 'Shrikhand', sans-serif;
+        font-size: 1.2em;
+        color: $colour-text-fond-sombre;
         padding-bottom: 1em;
     }
 }

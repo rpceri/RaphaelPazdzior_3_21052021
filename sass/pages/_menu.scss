@@ -1,1 +1,115 @@
- 
+.restau-img-sup {
+    grid-column-start: 2;
+    width: 100%;
+    height: 250px;
+    -o-object-fit: cover;
+    object-fit: cover;
+} 
+
+.restau-titre {
+    position: relative;
+    border-radius: 2.9rem 2.9rem 0 0;
+    padding: 1.9rem;
+    margin-top: -2rem;
+    background-color: $colour-fond2;
+    &__heart {
+        @include heart();
+    }
+}
+
+.menu  {
+    background-color: $colour-fond2;
+    padding:0 1.2em;
+    & .menu__titre {
+        padding:  0;
+    }
+    & .menu__separateur {
+        width: 3.5rem;
+        border-top: 3px solid $colour-tertiary;
+        margin: 0;
+    }
+    & .menu__group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
+            flex-wrap:nowrap;
+        }
+        
+        .menu__plat {
+            &:hover { 
+                background-color : $colour-fond1;
+            }
+            &:hover>.menu__plat__survol {
+               /* visibility:visible;*/
+                transition:all 0.4s ease-in-out;
+                transform:translateX(-100%);
+                & .menu__plat__survol2{
+                    transform:rotate(-360deg);
+                    transition-duration:1s
+                }
+
+             }
+            &:hover>.menu__plat__detail {
+                transform: scaleX(0.75);
+            }
+            .menu__plat__survol {
+                width: 20%;
+                height: 100%;
+                background-color: $colour-tertiary;
+                border-radius: 0 1.5rem 1.5rem 0;
+                color: $colour-fond3;
+                font-size: 1.5em;
+
+                top: 0;
+                left: 100%; /* pour le faire sortir de la boite */
+                position: absolute;
+                display: flex; /* très important pour que la coche interieur soit centrée , comme les 2 autres ci dessous*/
+                justify-content: center;
+                align-items: center;
+              /*  transform-origin: right;*/
+              /*  visibility: hidden;*/
+            }
+
+max-width: 350px;
+            position: relative;
+            background-color: $colour-fond3;
+            /*height: 2.8em;*/ /*50px; on ne specifie rien ainsi ca ira a la ligne si grande description*/
+            padding: 0 0 15px 15px;
+            margin: 1rem;
+            cursor: pointer;
+            overflow: hidden;
+            align-items: center;
+            width: 100%;
+            border-radius: 1.5rem;
+            box-shadow: $colour-box-shadow 0.14em 0.14em 0.07em;
+            grid-column-start: 2;
+            /*opacity: 0;
+            -webkit-animation: fadein 1.2s .3s ease-out both,transform .3s;
+            animation: fadein 1.2s .3s ease-out both,transform .3s;
+            -o-transition: all 1.5s;
+            transition: all 1.5s;
+            -webkit-transition: all 1.5s;*/
+
+            &__titre {
+                font-size: 1.1em;
+                font-weight: bold;
+            }
+            &__detail {
+                    display: flex;
+                    justify-content: space-between;
+ transition: transform 500ms;
+ transform-origin: 0% 50%;
+                    &__prix {
+                        /*font-size: 1.05em;*/
+                        font-weight: bold;
+                        padding-right: 0.5rem;
+                    }
+            }
+        }
+    }
+
+    .commander {
+        text-align: center;
+    }
+}

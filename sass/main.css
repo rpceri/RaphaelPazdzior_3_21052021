@@ -4,7 +4,7 @@
 /* vert*/
 /* gris foncé */
 /* gris clair */
-/* blanc pour fon lieu en mode desktop */
+/* blanc pour fond lieu en mode desktop + fond cadre des palts */
 /* pour hover des bouton de fonctionnement */
 /* $heading-shadow-size: .55rem; */
 /* gris foncé */
@@ -31,6 +31,8 @@
         }
 }
 */
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 *,
 *::after,
 *::before {
@@ -62,8 +64,7 @@ body {
 
 body {
   font-size: 1.5rem;
-  font-weight: 100;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 strong {
@@ -96,13 +97,16 @@ button {
           box-shadow: 3px 3px 3px #c2c2c2;
   font-size: 0.9em;
   color: #fff;
-  padding: 1rem;
-  background-image: radial-gradient(ellipse farthest-corner at 18px 0, #FF79DA 0%, #9356DC 100%);
+  padding: 1rem 1.9rem;
+  background-image: radial-gradient(ellipse farthest-corner at 100px 0, #FF79DA 0%, #9356DC 100%);
   cursor: pointer;
+  min-width: 12em;
+  font-weight: bold;
 }
 
 .bouton_explorer:hover {
-  background: #9356DC;
+  /*background: $colour-primary;*/
+  opacity: 80%;
   color: #222222;
 }
 
@@ -187,6 +191,12 @@ header {
   width: 12rem;
 }
 
+.retour-pg-prec {
+  position: absolute;
+  top: auto;
+  left: 1rem;
+}
+
 .nav {
   -webkit-box-flex: 2;
       -ms-flex: 2 1 auto;
@@ -196,31 +206,42 @@ header {
   padding: 1.5rem;
 }
 
-.nav h3 {
-  color: white;
+@media screen and (min-width: 1023px) {
+  .nav-ul {
+    /*sur grand écran = desktop */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
 }
 
-.nav__link {
+.nav-ul__link {
   list-style-type: none;
   /*&--active {
-            color: $colour-secondary;
-            &:hover{
                 color: $colour-secondary;
-            }
-        }*/
+                &:hover{
+                    color: $colour-secondary;
+                }
+            }*/
 }
 
-.nav__link a {
+.nav-ul__link a {
   text-decoration: none;
   color: white;
 }
 
-.nav__link a:hover {
+.nav-ul__link a:hover {
   color: grey;
 }
 
 .nav__titre-footer {
-  font-style: italic;
+  font-family: 'Shrikhand', sans-serif;
+  font-size: 1.2em;
+  color: white;
   padding-bottom: 1em;
 }
 
@@ -355,7 +376,7 @@ header, main {
 }
 
 .lieuEtFctionnment .fonctionnment {
-  padding: 10px 0 20px;
+  padding: 30px 0 20px;
   /*background-color: yellow;*/
   /* grid-template-columns: 1fr 90% 1fr;*/
 }
@@ -367,12 +388,14 @@ header, main {
   }
 }
 
-.lieuEtFctionnment .fonctionnment h1 {
+.lieuEtFctionnment .fonctionnment .titre_fonctionnment {
+  font-weight: bold;
+  font-size: 1.2em;
   padding-left: 10px;
 }
 
 @media screen and (min-width: 1023px) {
-  .lieuEtFctionnment .fonctionnment h1 {
+  .lieuEtFctionnment .fonctionnment .titre_fonctionnment {
     /*sur grand écran = desktop */
     text-align: center;
     background-color: #eaeaea;
@@ -383,7 +406,7 @@ header, main {
 .lieuEtFctionnment .fonctionnment .listeFonctionnment {
   max-width: 400px;
   margin: auto;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .restaurants {
@@ -391,7 +414,9 @@ header, main {
   background-color: #f6f6f6;
 }
 
-.restaurants h1 {
+.restaurants .restaurants-titre {
+  font-weight: bold;
+  font-size: 1.2em;
   padding-left: 10px;
 }
 
@@ -502,35 +527,215 @@ header, main {
   font-size: 1.54rem;
 }
 
-.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit .desc-produit__heart {
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit__heart {
   position: absolute;
   font-size: 2rem;
   right: 2rem;
   bottom: 2rem;
 }
 
-.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit .desc-produit__heart-animee {
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit__heart-animee {
   position: absolute;
   opacity: 0;
   font-size: 1.95rem;
   right: 2rem;
   bottom: 2rem;
-  /*&:hover::after{
-                            color:$colour-secondary;
-                            background-color: $colour-secondary;
-                        }*/
 }
 
-.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit .desc-produit__heart-animee:hover {
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit__heart-animee:hover {
   opacity: 1;
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
 }
 
-.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit .desc-produit__heart-animee .heart-degrade {
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit__heart-animee .heart-degrade {
   background: -webkit-gradient(linear, left top, left bottom, from(#9356DC), to(#FF79DA));
   -webkit-background-clip: text;
-  /* pour que le changement de fon ne s'applique qu'a l'interieur*/
+  /* pour que le changement de fond ne s'applique qu'a l'interieur*/
   -webkit-text-fill-color: transparent;
+}
+
+.restau-img-sup {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.restau-titre {
+  position: relative;
+  border-radius: 2.9rem 2.9rem 0 0;
+  padding: 1.9rem;
+  margin-top: -2rem;
+  background-color: #f6f6f6;
+}
+
+.restau-titre__heart {
+  position: absolute;
+  font-size: 2rem;
+  right: 2rem;
+  bottom: 2rem;
+}
+
+.restau-titre__heart-animee {
+  position: absolute;
+  opacity: 0;
+  font-size: 1.95rem;
+  right: 2rem;
+  bottom: 2rem;
+}
+
+.restau-titre__heart-animee:hover {
+  opacity: 1;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.restau-titre__heart-animee .heart-degrade {
+  background: -webkit-gradient(linear, left top, left bottom, from(#9356DC), to(#FF79DA));
+  -webkit-background-clip: text;
+  /* pour que le changement de fond ne s'applique qu'a l'interieur*/
+  -webkit-text-fill-color: transparent;
+}
+
+.menu {
+  background-color: #f6f6f6;
+  padding: 0 1.2em;
+}
+
+.menu .menu__titre {
+  padding: 0;
+}
+
+.menu .menu__separateur {
+  width: 3.5rem;
+  border-top: 3px solid #99E2D0;
+  margin: 0;
+}
+
+.menu .menu__group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media screen and (min-width: 1023px) {
+  .menu .menu__group {
+    /*sur grand écran = desktop */
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+}
+
+.menu .menu__group .menu__plat {
+  max-width: 350px;
+  position: relative;
+  background-color: white;
+  /*height: 2.8em;*/
+  /*50px; on ne specifie rien ainsi ca ira a la ligne si grande description*/
+  padding: 0 0 15px 15px;
+  margin: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  border-radius: 1.5rem;
+  -webkit-box-shadow: #eaeaea 0.14em 0.14em 0.07em;
+          box-shadow: #eaeaea 0.14em 0.14em 0.07em;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  /*opacity: 0;
+            -webkit-animation: fadein 1.2s .3s ease-out both,transform .3s;
+            animation: fadein 1.2s .3s ease-out both,transform .3s;
+            -o-transition: all 1.5s;
+            transition: all 1.5s;
+            -webkit-transition: all 1.5s;*/
+}
+
+.menu .menu__group .menu__plat:hover {
+  background-color: #eaeaea;
+}
+
+.menu .menu__group .menu__plat:hover > .menu__plat__survol {
+  /* visibility:visible;*/
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.menu .menu__group .menu__plat:hover > .menu__plat__survol .menu__plat__survol2 {
+  -webkit-transform: rotate(-360deg);
+          transform: rotate(-360deg);
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+}
+
+.menu .menu__group .menu__plat:hover > .menu__plat__detail {
+  -webkit-transform: scaleX(0.75);
+          transform: scaleX(0.75);
+}
+
+.menu .menu__group .menu__plat .menu__plat__survol {
+  width: 20%;
+  height: 100%;
+  background-color: #99E2D0;
+  border-radius: 0 1.5rem 1.5rem 0;
+  color: white;
+  font-size: 1.5em;
+  top: 0;
+  left: 100%;
+  /* pour le faire sortir de la boite */
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* très important pour que la coche interieur soit centrée , comme les 2 autres ci dessous*/
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*  transform-origin: right;*/
+  /*  visibility: hidden;*/
+}
+
+.menu .menu__group .menu__plat__titre {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.menu .menu__group .menu__plat__detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: -webkit-transform 500ms;
+  transition: -webkit-transform 500ms;
+  transition: transform 500ms;
+  transition: transform 500ms, -webkit-transform 500ms;
+  -webkit-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+}
+
+.menu .menu__group .menu__plat__detail__prix {
+  /*font-size: 1.05em;*/
+  font-weight: bold;
+  padding-right: 0.5rem;
+}
+
+.menu .commander {
+  text-align: center;
 }
 /*# sourceMappingURL=main.css.map */

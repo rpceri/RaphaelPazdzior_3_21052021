@@ -2,6 +2,29 @@
 @mixin border($colour:$colour-primary) {
     border: .1rem solid $colour;
 }
+
+@mixin heart() {
+    position: absolute;
+    font-size: 2rem;
+    right: 2rem;
+    bottom: 2rem;
+    &-animee {
+        position: absolute;
+        opacity: 0;
+        font-size: 1.95rem;
+        right: 2rem;
+        bottom: 2rem;
+        &:hover{
+            opacity:1;
+            transition:opacity 1s
+        }
+        & .heart-degrade {
+            background: -webkit-gradient(linear, left top, left bottom, from($colour-primary), to($colour-secondary));
+            -webkit-background-clip: text; /* pour que le changement de fond ne s'applique qu'a l'interieur*/
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
 /*
 @mixin img-ratio {
     width: 100%;
