@@ -3,8 +3,10 @@ header, main {
     max-width: 1140px;
     margin: auto;
 }
+/*main {
+    background-color: red;
+}
 
-/*
 .container {
     margin: $layout-margin;
     padding: $grid-gutter $grid-gutter 0 $grid-gutter;
@@ -12,61 +14,11 @@ header, main {
 }
 */
 
-.lieuEtFctionnment {
-    /*background-color: yellow;*/
-    display: grid;
-    grid-template-columns: 50% 50%;
-    @media screen and (max-width: 1023px) {
-        display: block;
-        /*background-color: yellow;*/
-    }
 
-    &__ville {
-        width: 100%;
-        display: inline-flex;
-        justify-content: center;
-        padding: 1rem 0 1rem 0;
-        background-color: $colour-fond1;
-        & span {
-            padding-left:2rem;
-            font-weight: bold;
-        }
-    }
 
-    &__explorer {
-            background-color: $colour-fond2;
-            text-align: center;
-            font-size: 1.8rem;
-            padding-top: 1.5rem; 
-            & h1 {
-                padding: 1rem 0; 
-            }
-            & span {
-                color: $colour-text-leger;  
-            }
-    }
 
-}
 
-.fonctionnment {
-   /* grid-template-columns: 1fr 90% 1fr;*/
-    & h1 {
-        padding-left: 10px;
-    }
-    padding: 10px 0 20px;
-}
 
-.restaurants {
-    & h1 {
-            padding-left: 10px;
-    }
-}
-
-.listeFonctionnment {
-    max-width:400px;
-    margin : auto;
-    padding: 20px;
-}
 
 
 

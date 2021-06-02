@@ -1,67 +1,180 @@
+.lieuEtFctionnment {
+    /*background-color: yellow;*/
+    display: grid;
+    grid-template-columns: 50% 50%;
+    display: block;
 
-.restaurants{ padding-top : 10px;  /*background-color: orange !important;*/}
+    @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
+        display:grid;
 
-/*sur grand écran = desktop */
-@media screen and (min-width: 1024px) { 
-
-    #hebergements .produits,  .restaurants .produits { /* pour que les produits s'affiches à la suite en mode desktop */
-        display: flex; /* flex-direction: row; par defaut */
-        flex-wrap: wrap;
-        justify-content: space-around; /*les éléments sont séparés avec de l'espace entre eux ;.*/
     }
-    .restaurants .vignetteHaute {
-        height:90%;
+    /* __ville et __explorer sont inclus  dans un meme div */
+    & .lieu {
+        height: 100%;
+        @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
+            border-right: solid 1px $colour-separateur-blocs;
+        }
+        &__ville {
+            width: 100%;
+            display: inline-flex;
+            justify-content: center;
+            padding: 1rem 0 1rem 0;
+            background-color: $colour-fond1;
+            & span {
+                padding-left:2rem;
+                font-weight: bold;
+            }
+        }
+
+        &__explorer {
+            background-color: $colour-fond2;
+            text-align: center;
+            font-size: 1.8rem;
+            padding-top: 1.5rem; 
+            /*height: 100%;*/
+            & h1 {
+                padding: 1rem 0; 
+            }
+            & span {
+                color: $colour-text-leger;  
+            }
+            @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
+                background-color: $colour-fond3;
+            }
+        }
     }
-    .restaurants .vignetteHaute .imgbg {
-        background-size: 24.7em !important;
-        height: 260px !important;
+
+    & .fonctionnment {
+        padding: 10px 0 20px;
+        @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
+
+            padding:  0;
+         }
+        /*background-color: yellow;*/
+        /* grid-template-columns: 1fr 90% 1fr;*/
+         & h1 {
+             padding-left: 10px;
+             @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
+                text-align: center;
+                background-color: $colour-fond1;
+                padding: 1rem 0 0.5rem 0;
+             }
+         }
+         & .listeFonctionnment {
+            max-width:400px;
+            margin : auto;
+            padding: 20px;
+        }
+     }
+}
+
+
+
+
+.restaurants{ 
+    padding-top : 10px;
+    background-color: $colour-fond2;
+
+    & h1 {
+        padding-left: 10px;
     }
+    & .restaurants-liste {
+        padding-bottom: 2em;
+
+        @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
+            /* pour que les restaurants s'affichent à la suite en mode desktop */
+            display: flex; /* flex-direction: row; par defaut */
+            flex-wrap: wrap;
+            justify-content: space-around; /*les éléments sont séparés avec de l'espace entre eux ;.*/
+            & .vignetteHaute {
+                height:90%;
+                & .imgbg {
+                background-size: 24.7em !important;
+                    height: 260px !important;
+                }
+            }
+        }
+
+        & .restaurants-liste__lien{
+            text-decoration: none;
+            color: $colour-lien-produit;
+
+            /* arrondi fond blanc */
+            & .restaurant-bloc {
+                flex-direction: column;
+                position: relative; /* pour que la notif-nouveau soit positionnée où on le souhaite */
+                display: flex;
+                background-color:white;
+                border-radius: 20px;
+                margin: 20px auto 0px auto; /* auto pour centrer, on aurait pu aussi ne pas définir de max-width... */
+                padding: 0px;
+                max-width: 340px; /* a voir */
+                min-width: 240px;
+                box-shadow: $colour-box-shadow 0.12em 0.12em 0.05em;
+
+                &:hover{
+                    background-color: $colour-fond1;
+                }
+                &--notif-nouveau {
+                    border-radius: 2px;
+                    background-color: $colour-tertiary;
+                    color: $colour-tertiary-text;
+                    padding: 0 5px;
+                    position: absolute;
+                    top: 0.6em;
+                    right: 0.5em;
+                    font-weight: bold;
+                }
+
+                & .imgbg {
+                    border-radius: 20px 20px 0 0;
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    width: 100%;
+                    height: 100px;
+                     /* images propres a chaque encadré */
+                    &--imgbg1 { background-image: url("../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");}
+                    &--imgbg2 { background-image: url("../images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");}
+                    &--imgbg3 { background-image: url("../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");}
+                    &--imgbg4 { background-image: url("../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");}
+                }
+                & .desc-produit {
+                    padding: 0 0 10px 10px;
+                    margin-top: 10px;
+                    position: relative; /* pour pouvoir mettre les 2 autre ci dessous en absolute */
+                    &  p {
+                        margin: 0px;
+                        font-size: 1.54rem;
+                    }
+                    & .desc-produit__heart {
+                        position: absolute;
+                        font-size: 2rem;
+                        right: 2rem;
+                        bottom: 2rem;
+                    }
+                    & .desc-produit__heart-animee {
+                        position: absolute;
+                        opacity: 0;
+                        font-size: 1.95rem;
+                        right: 2rem;
+                        bottom: 2rem;
+                        &:hover{
+                            opacity:1;
+                            transition:opacity 1s
+                        }
+                        /*&:hover::after{
+                            color:$colour-secondary;
+                            background-color: $colour-secondary;
+                        }*/
+                        & .heart-degrade {
+                            background: -webkit-gradient(linear, left top, left bottom, from($colour-primary), to($colour-secondary));
+                            -webkit-background-clip: text; /* pour que le changement de fon ne s'applique qu'a l'interieur*/
+                            -webkit-text-fill-color: transparent;
+                        }
+                    }
+                }
+            } 
+        }        
+    }    
 }
 
-
-.restaurants .produits__lien__produit .desc-produit {
-    padding: 0 0 10px 10px;
-
-}
-
-
-.restaurants .produits__lien__produit .imgbg {
-    border-radius: 20px 20px 0 0;
-    background-size: 100%;
-    width: 100%;
-    height: 100px;
-}
-.produits__lien{
-    text-decoration: none;
-    color: $colour-lien-produit;
-}
-.produits__lien:hover{
-    background-color: aqua;
-}
-.restaurants .produits .desc-produit {
-    margin-top: 10px;
-}
-.restaurants .produits .desc-produit p {
-    margin: 0px;
-    font-size: 1.54rem;
-}
-
-/* images propres a chaque encadré */
-#Activimgbg1 { background-image: url("../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");}
-#Activimgbg2 { background-image: url("../images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");}
-#Activimgbg3 { background-image: url("../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");}
-#Activimgbg4 { background-image: url("../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");}
-
-/* arrondi fond blanc */
-.restaurants .produits__lien__produit {
-    flex-direction: column;
-
-    display: flex;
-    background-color:white;
-    border-radius: 20px;
-    margin: 20px auto 20px auto; /* auto pour centrer, on aurait pu aussi ne pas définir de max-width... */
-    padding: 5px;
-    max-width: 340px; /* a voir */
-    min-width: 240px;
-    box-shadow: lightgrey 0.12em 0.12em 0.05em;
-}

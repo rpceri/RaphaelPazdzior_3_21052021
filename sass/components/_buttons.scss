@@ -40,9 +40,6 @@
 
         font-size: 1.8rem;
         color: $colour-text-leger;
-        &:hover {
-            color: #9356DC;
-        }
     }
     &--lib {
         font-size: 1.4rem;
@@ -50,7 +47,10 @@
         font-weight: bold;
     }
     &:hover {
-        background-color: #d7c9e9;
+        background-color: $colour-primary-leger;
         box-shadow: 3px 3px 20px #c6bfbf;
+    }
+    &:hover &--icone {
+        color: $colour-primary;
     }
 }

@@ -3,7 +3,11 @@ $colour-secondary: #FF79DA; /* rose*/
 $colour-tertiary: #99E2D0; /* vert*/
 $colour-fond1: #eaeaea; /* gris foncé */
 $colour-fond2: #f6f6f6; /* gris clair */
+$colour-fond3: white; /* blanc pour fon lieu en mode desktop */
 $colour-shadow-btn : #c2c2c2;
+$colour-separateur-blocs : #585454;
+
+$colour-primary-leger : #e4d9f1; /* pour hover des bouton de fonctionnement */
 
 $colour-text-leger: rgb(119, 119, 119);
 
@@ -16,3 +20,6 @@ $colour-lien-produit :rgb(34, 34, 34);
 $colour-fond-sombre : rgb(95, 95, 95);
 $colour-text-fond-sombre : white;
 $colour-text-fond-sombre-survole : grey;
+
+$colour-tertiary-text: #3a927e;
+$colour-box-shadow: #eaeaea; /* gris foncé */

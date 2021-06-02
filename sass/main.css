@@ -4,7 +4,10 @@
 /* vert*/
 /* gris foncé */
 /* gris clair */
+/* blanc pour fon lieu en mode desktop */
+/* pour hover des bouton de fonctionnement */
 /* $heading-shadow-size: .55rem; */
+/* gris foncé */
 /*@function lightness-shift($colour) {
     @if (lightness($colour) < 25%){
         @return lighten($colour, 10%);
@@ -42,6 +45,7 @@ html {
 
 @media screen and (min-width: 1023px) {
   html {
+    /*sur grand écran = desktop */
     font-size: 60%;
   }
 }
@@ -57,9 +61,13 @@ body {
 }
 
 body {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 100;
   line-height: 1.7;
+}
+
+strong {
+  font-weight: bold;
 }
 
 h1, h2, h3 {
@@ -131,10 +139,6 @@ button {
   color: #777777;
 }
 
-.fonctionnment__bloc--icone:hover {
-  color: #9356DC;
-}
-
 .fonctionnment__bloc--lib {
   font-size: 1.4rem;
   margin-left: 2rem;
@@ -142,9 +146,13 @@ button {
 }
 
 .fonctionnment__bloc:hover {
-  background-color: #d7c9e9;
+  background-color: #e4d9f1;
   -webkit-box-shadow: 3px 3px 20px #c6bfbf;
           box-shadow: 3px 3px 20px #c6bfbf;
+}
+
+.fonctionnment__bloc:hover .fonctionnment__bloc--icone {
+  color: #9356DC;
 }
 
 /*.header {
@@ -211,6 +219,11 @@ header {
   color: grey;
 }
 
+.nav__titre-footer {
+  font-style: italic;
+  padding-bottom: 1em;
+}
+
 header, main {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -219,79 +232,16 @@ header, main {
   margin: auto;
 }
 
-/*
+/*main {
+    background-color: red;
+}
+
 .container {
     margin: $layout-margin;
     padding: $grid-gutter $grid-gutter 0 $grid-gutter;
     @include border(red);
 }
 */
-.lieuEtFctionnment {
-  /*background-color: yellow;*/
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 50% 50%;
-      grid-template-columns: 50% 50%;
-}
-
-@media screen and (max-width: 1023px) {
-  .lieuEtFctionnment {
-    display: block;
-    /*background-color: yellow;*/
-  }
-}
-
-.lieuEtFctionnment__ville {
-  width: 100%;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 1rem 0 1rem 0;
-  background-color: #eaeaea;
-}
-
-.lieuEtFctionnment__ville span {
-  padding-left: 2rem;
-  font-weight: bold;
-}
-
-.lieuEtFctionnment__explorer {
-  background-color: #f6f6f6;
-  text-align: center;
-  font-size: 1.8rem;
-  padding-top: 1.5rem;
-}
-
-.lieuEtFctionnment__explorer h1 {
-  padding: 1rem 0;
-}
-
-.lieuEtFctionnment__explorer span {
-  color: #777777;
-}
-
-.fonctionnment {
-  /* grid-template-columns: 1fr 90% 1fr;*/
-  padding: 10px 0 20px;
-}
-
-.fonctionnment h1 {
-  padding-left: 10px;
-}
-
-.restaurants h1 {
-  padding-left: 10px;
-}
-
-.listeFonctionnment {
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-}
-
 /*.form {
     width: 100%;
     padding-bottom: $grid-gutter;
@@ -335,15 +285,124 @@ header, main {
         }
     }
 }*/
-.restaurants {
-  padding-top: 10px;
-  /*background-color: orange !important;*/
+.lieuEtFctionnment {
+  /*background-color: yellow;*/
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  display: block;
+  /* __ville et __explorer sont inclus  dans un meme div */
 }
 
-/*sur grand écran = desktop */
-@media screen and (min-width: 1024px) {
-  #hebergements .produits, .restaurants .produits {
-    /* pour que les produits s'affiches à la suite en mode desktop */
+@media screen and (min-width: 1023px) {
+  .lieuEtFctionnment {
+    /*sur grand écran = desktop */
+    display: -ms-grid;
+    display: grid;
+  }
+}
+
+.lieuEtFctionnment .lieu {
+  height: 100%;
+}
+
+@media screen and (min-width: 1023px) {
+  .lieuEtFctionnment .lieu {
+    /*sur grand écran = desktop */
+    border-right: solid 1px #585454;
+  }
+}
+
+.lieuEtFctionnment .lieu__ville {
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem 0 1rem 0;
+  background-color: #eaeaea;
+}
+
+.lieuEtFctionnment .lieu__ville span {
+  padding-left: 2rem;
+  font-weight: bold;
+}
+
+.lieuEtFctionnment .lieu__explorer {
+  background-color: #f6f6f6;
+  text-align: center;
+  font-size: 1.8rem;
+  padding-top: 1.5rem;
+  /*height: 100%;*/
+}
+
+.lieuEtFctionnment .lieu__explorer h1 {
+  padding: 1rem 0;
+}
+
+.lieuEtFctionnment .lieu__explorer span {
+  color: #777777;
+}
+
+@media screen and (min-width: 1023px) {
+  .lieuEtFctionnment .lieu__explorer {
+    /*sur grand écran = desktop */
+    background-color: white;
+  }
+}
+
+.lieuEtFctionnment .fonctionnment {
+  padding: 10px 0 20px;
+  /*background-color: yellow;*/
+  /* grid-template-columns: 1fr 90% 1fr;*/
+}
+
+@media screen and (min-width: 1023px) {
+  .lieuEtFctionnment .fonctionnment {
+    /*sur grand écran = desktop */
+    padding: 0;
+  }
+}
+
+.lieuEtFctionnment .fonctionnment h1 {
+  padding-left: 10px;
+}
+
+@media screen and (min-width: 1023px) {
+  .lieuEtFctionnment .fonctionnment h1 {
+    /*sur grand écran = desktop */
+    text-align: center;
+    background-color: #eaeaea;
+    padding: 1rem 0 0.5rem 0;
+  }
+}
+
+.lieuEtFctionnment .fonctionnment .listeFonctionnment {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+
+.restaurants {
+  padding-top: 10px;
+  background-color: #f6f6f6;
+}
+
+.restaurants h1 {
+  padding-left: 10px;
+}
+
+.restaurants .restaurants-liste {
+  padding-bottom: 2em;
+}
+
+@media screen and (min-width: 1023px) {
+  .restaurants .restaurants-liste {
+    /*sur grand écran = desktop */
+    /* pour que les restaurants s'affichent à la suite en mode desktop */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -354,79 +413,124 @@ header, main {
         justify-content: space-around;
     /*les éléments sont séparés avec de l'espace entre eux ;.*/
   }
-  .restaurants .vignetteHaute {
+  .restaurants .restaurants-liste .vignetteHaute {
     height: 90%;
   }
-  .restaurants .vignetteHaute .imgbg {
+  .restaurants .restaurants-liste .vignetteHaute .imgbg {
     background-size: 24.7em !important;
     height: 260px !important;
   }
 }
 
-.restaurants .produits__lien__produit .desc-produit {
-  padding: 0 0 10px 10px;
-}
-
-.restaurants .produits__lien__produit .imgbg {
-  border-radius: 20px 20px 0 0;
-  background-size: 100%;
-  width: 100%;
-  height: 100px;
-}
-
-.produits__lien {
+.restaurants .restaurants-liste .restaurants-liste__lien {
   text-decoration: none;
   color: #222222;
+  /* arrondi fond blanc */
 }
 
-.produits__lien:hover {
-  background-color: aqua;
-}
-
-.restaurants .produits .desc-produit {
-  margin-top: 10px;
-}
-
-.restaurants .produits .desc-produit p {
-  margin: 0px;
-  font-size: 1.54rem;
-}
-
-/* images propres a chaque encadré */
-#Activimgbg1 {
-  background-image: url("../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
-}
-
-#Activimgbg2 {
-  background-image: url("../images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
-}
-
-#Activimgbg3 {
-  background-image: url("../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
-}
-
-#Activimgbg4 {
-  background-image: url("../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
-}
-
-/* arrondi fond blanc */
-.restaurants .produits__lien__produit {
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
+  /* pour que la notif-nouveau soit positionnée où on le souhaite */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background-color: white;
   border-radius: 20px;
-  margin: 20px auto 20px auto;
+  margin: 20px auto 0px auto;
   /* auto pour centrer, on aurait pu aussi ne pas définir de max-width... */
-  padding: 5px;
+  padding: 0px;
   max-width: 340px;
   /* a voir */
   min-width: 240px;
-  -webkit-box-shadow: lightgrey 0.12em 0.12em 0.05em;
-          box-shadow: lightgrey 0.12em 0.12em 0.05em;
+  -webkit-box-shadow: #eaeaea 0.12em 0.12em 0.05em;
+          box-shadow: #eaeaea 0.12em 0.12em 0.05em;
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc:hover {
+  background-color: #eaeaea;
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc--notif-nouveau {
+  border-radius: 2px;
+  background-color: #99E2D0;
+  color: #3a927e;
+  padding: 0 5px;
+  position: absolute;
+  top: 0.6em;
+  right: 0.5em;
+  font-weight: bold;
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .imgbg {
+  border-radius: 20px 20px 0 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100px;
+  /* images propres a chaque encadré */
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .imgbg--imgbg1 {
+  background-image: url("../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .imgbg--imgbg2 {
+  background-image: url("../images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .imgbg--imgbg3 {
+  background-image: url("../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .imgbg--imgbg4 {
+  background-image: url("../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit {
+  padding: 0 0 10px 10px;
+  margin-top: 10px;
+  position: relative;
+  /* pour pouvoir mettre les 2 autre ci dessous en absolute */
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit p {
+  margin: 0px;
+  font-size: 1.54rem;
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit .desc-produit__heart {
+  position: absolute;
+  font-size: 2rem;
+  right: 2rem;
+  bottom: 2rem;
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit .desc-produit__heart-animee {
+  position: absolute;
+  opacity: 0;
+  font-size: 1.95rem;
+  right: 2rem;
+  bottom: 2rem;
+  /*&:hover::after{
+                            color:$colour-secondary;
+                            background-color: $colour-secondary;
+                        }*/
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit .desc-produit__heart-animee:hover {
+  opacity: 1;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.restaurants .restaurants-liste .restaurants-liste__lien .restaurant-bloc .desc-produit .desc-produit__heart-animee .heart-degrade {
+  background: -webkit-gradient(linear, left top, left bottom, from(#9356DC), to(#FF79DA));
+  -webkit-background-clip: text;
+  /* pour que le changement de fon ne s'applique qu'a l'interieur*/
+  -webkit-text-fill-color: transparent;
 }
 /*# sourceMappingURL=main.css.map */
