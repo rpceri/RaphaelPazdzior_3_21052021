@@ -15,22 +15,6 @@
         @return darken($colour, 10%);
     }
 }*/
-/*
-@mixin img-ratio {
-    width: 100%;
-        display: block;
-        overflow: hidden;
-        padding-top: 56.5%;
-        position: relative;
-        & img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            transform: translate(-50%, -50%);
-        }
-}
-*/
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 *,
@@ -555,6 +539,36 @@ header, main {
   -webkit-text-fill-color: transparent;
 }
 
+@-webkit-keyframes effet-affichage-menu {
+  /* @keyframes = règle ou sont déclarées un ensemble de keyframe */
+  0% {
+    opacity: 50%;
+  }
+  80% {
+    opacity: 60%;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 100%;
+  }
+}
+
+@keyframes effet-affichage-menu {
+  /* @keyframes = règle ou sont déclarées un ensemble de keyframe */
+  0% {
+    opacity: 50%;
+  }
+  80% {
+    opacity: 60%;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 100%;
+  }
+}
+
 .restau-img-sup {
   -ms-grid-column: 2;
       grid-column-start: 2;
@@ -650,14 +664,15 @@ header, main {
   border-radius: 1.5rem;
   -webkit-box-shadow: #eaeaea 0.14em 0.14em 0.07em;
           box-shadow: #eaeaea 0.14em 0.14em 0.07em;
-  -ms-grid-column: 2;
-      grid-column-start: 2;
-  /*opacity: 0;
-            -webkit-animation: fadein 1.2s .3s ease-out both,transform .3s;
-            animation: fadein 1.2s .3s ease-out both,transform .3s;
-            -o-transition: all 1.5s;
-            transition: all 1.5s;
-            -webkit-transition: all 1.5s;*/
+  opacity: 0;
+  -webkit-animation: effet-affichage-menu 0.5s 0s ease-out forwards;
+          animation: effet-affichage-menu 0.5s 0s ease-out forwards;
+  /* duréen delay, effet, animation-fill-mode : effet-affichage-men est une keyframe, sert a faire l'effet de transition souhaité */
+  -webkit-transition: all 1.5s;
+  transition: all 1.5s;
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+  /* delai pour déalage */
 }
 
 .menu .menu__group .menu__plat:hover {
@@ -682,6 +697,7 @@ header, main {
 .menu .menu__group .menu__plat:hover > .menu__plat__detail {
   -webkit-transform: scaleX(0.75);
           transform: scaleX(0.75);
+  /* diminution de la taille du bloc détaillant le plat */
 }
 
 .menu .menu__group .menu__plat .menu__plat__survol {
@@ -707,6 +723,21 @@ header, main {
           align-items: center;
   /*  transform-origin: right;*/
   /*  visibility: hidden;*/
+}
+
+.menu .menu__group .menu__plat:nth-child(2) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.menu .menu__group .menu__plat:nth-child(3) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.menu .menu__group .menu__plat:nth-child(4) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
 }
 
 .menu .menu__group .menu__plat__titre {

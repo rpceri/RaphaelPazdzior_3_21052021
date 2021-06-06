@@ -1,3 +1,16 @@
+@keyframes effet-affichage-menu{ /* @keyframes = règle ou sont déclarées un ensemble de keyframe */
+    0% {
+        opacity:50%;
+    }
+    80% {
+        opacity:60%;
+    }
+    100% {
+        transform:translateY(0);
+        opacity:100%;
+    }
+}
+
 .restau-img-sup {
     grid-column-start: 2;
     width: 100%;
@@ -29,12 +42,14 @@
         margin: 0;
     }
     & .menu__group {
+
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
             flex-wrap:nowrap;
         }
+
         
         .menu__plat {
             &:hover { 
@@ -51,7 +66,7 @@
 
              }
             &:hover>.menu__plat__detail {
-                transform: scaleX(0.75);
+                transform: scaleX(0.75); /* diminution de la taille du bloc détaillant le plat */
             }
             .menu__plat__survol {
                 width: 20%;
@@ -83,13 +98,14 @@ max-width: 350px;
             width: 100%;
             border-radius: 1.5rem;
             box-shadow: $colour-box-shadow 0.14em 0.14em 0.07em;
-            grid-column-start: 2;
-            /*opacity: 0;
-            -webkit-animation: fadein 1.2s .3s ease-out both,transform .3s;
-            animation: fadein 1.2s .3s ease-out both,transform .3s;
-            -o-transition: all 1.5s;
+
+            opacity: 0;
+            animation: effet-affichage-menu 0.5s 0s ease-out forwards ; /* duréen delay, effet, animation-fill-mode : effet-affichage-men est une keyframe, sert a faire l'effet de transition souhaité */
             transition: all 1.5s;
-            -webkit-transition: all 1.5s;*/
+            transform:translateY(+20%);
+            &:nth-child(2) { animation-delay: 0.2s; } /* delai pour déalage */
+            &:nth-child(3) { animation-delay: 0.4s; }
+            &:nth-child(4) { animation-delay: 0.6s; }
 
             &__titre {
                 font-size: 1.1em;
