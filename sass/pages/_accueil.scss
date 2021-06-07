@@ -49,39 +49,34 @@
         @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
             padding:  0;
         }
-        /*background-color: yellow;*/
-        /* grid-template-columns: 1fr 90% 1fr;*/
-         & .titre_fonctionnment {
-             font-weight: bold;
-             font-size: 1.2em;
-             padding-left: 10px;
-             @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
-                text-align: center;
-                background-color: $colour-fond1;
-                padding: 1rem 0 0.5rem 0;
-             }
-         }
-         & .listeFonctionnment {
-            max-width:400px;
-            margin : auto;
-            padding: 0 20px;
+        &__titre {
+            font-weight: bold;
+            font-size: 1.2em;
+            padding-left: 10px;
+            @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
+               text-align: center;
+               background-color: $colour-fond1;
+               padding: 1rem 0 0.5rem 0;
+            }
+        }
+        &__listeFonctionnment {
+           max-width:400px;
+           margin : auto;
+           padding: 0 20px;
         }
      }
 }
-
-
-
 
 .restaurants{ 
     padding-top : 10px;
     background-color: $colour-fond2;
 
-    & .restaurants-titre {
+    &-titre {
         font-weight: bold;
         font-size: 1.2em;
         padding-left: 10px;
     }
-    & .restaurants-liste {
+    &-liste {
         padding-bottom: 2em;
 
         @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
@@ -98,7 +93,7 @@
             }
         }
 
-        & .restaurants-liste__lien{
+        &__lien{
             text-decoration: none;
             color: $colour-lien-produit;
 

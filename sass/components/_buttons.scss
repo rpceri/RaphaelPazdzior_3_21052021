@@ -1,4 +1,4 @@
-.bouton_explorer {
+.bouton-action {
     margin: 1.5rem 0 3rem 0;
     border-radius: 2em;
     border: 0;
@@ -12,13 +12,13 @@
     font-weight: bold;
  
     &:hover{
-        /*background: $colour-primary;*/
+        box-shadow: 6px 5px 5px $colour-shadow-btn;
         opacity: 80%;
         color: $colour-accent;
     }
 }
 
-.fonctionnment__bloc {
+.bouton-fonctionnement {
     display: flex;
     margin: 1.5rem 0 25px 0;
     padding: 1.8rem 0 1.3rem 0;
@@ -27,7 +27,6 @@
 
     border-radius: 1.5rem;
     box-shadow: 3px 3px 10px $colour-fond1; /* ombre porté */
-
 
     &--num {
         color: #fff;
@@ -40,7 +39,6 @@
         font-weight: bold;
     }
     &--icone {
-
         font-size: 1.8rem;
         color: $colour-text-leger;
     }
@@ -53,7 +51,7 @@
         background-color: $colour-primary-leger;
         box-shadow: 3px 3px 20px #c6bfbf;
     }
-    &:hover &--icone {
+    &:hover &--icone { /* changer la couleur de l'icone lorsqu'on passe sur le div */
         color: $colour-primary;
     }
 }
