@@ -1,3 +1,72 @@
+@keyframes animationSpinLoader {
+    to {
+        z-index:-100; // pour placer le div derriere sinon rien ne serait cliquable sur la page
+        opacity:0; // utile de mettre ca si  couleur de fond reste 
+    }
+}
+
+@keyframes animationUnElement {
+    from {transform: scale(0); opacity:0;}
+    to{transform: scale(1); opacity:100%;}
+
+}
+
+.spin-loader {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background-color:$colour-fond-spin-loader; 
+    animation:animationSpinLoader 0.5s; //durée = durée de l'animation qui va permettre de faire disparaitre le spin loader
+    animation-delay:2.5s; // durée d'attente avant de démarrer l'animation (une fois qu'elle a été appliquée à un élément.)
+    animation-fill-mode:forwards; // both/backwards/forwards indique la façon dont une animation CSS doit appliquer les styles à sa cible avant et après son exécution.
+    z-index:100;
+    display:flex;
+    align-items:initial; // ou center... le fait de mettre initial et un padding-top aitemcontainer donne l'effet d'acenceur
+    justify-content:center;
+
+    &__itemContainer {
+        display:flex;
+       // width:15rem; //15 nok sur petit écran
+        vertical-align:top;
+        padding-top: 100px;
+        /*justify-content:space-between;*/
+
+        &__item {
+            text-align: center;
+            font-family: 'Shrikhand', sans-serif;
+            & span {font-family: 'Shrikhand', sans-serif;}
+            font-size: 2.2em;
+            transform:scale(0);
+            opacity:0;
+            animation: animationUnElement 1.9s;// car le delai du fondu est 2.5, donc il faut retirer le delai le plus long, et encore un peu pour que ca reste affiché un moment
+            animation-fill-mode:forwards;
+            animation-iteration-count:1; // nombre de fois ou l'animation boucle
+            &--1 {
+               & span {color:$colour-primary;}
+            }    
+            &--2 {
+               & span {color:$colour-secondary;}
+                animation-delay:0.2s;
+            }
+            &--3 {
+                & span {color:$colour-tertiary;}
+                animation-delay:0.4s;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
 .lieuEtFctionnment {
     /*background-color: yellow;*/
     display: grid;

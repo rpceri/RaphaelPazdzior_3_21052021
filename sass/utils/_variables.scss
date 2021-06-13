@@ -23,3 +23,5 @@ $colour-text-fond-sombre-survole : grey;
 
 $colour-tertiary-text: #3a927e;
 $colour-box-shadow: #eaeaea; /* gris foncé */
+
+$colour-fond-spin-loader: hsla(0,100%,100%,0.98); // h: teinte sur la roue des couleurs. , s: % sat, 100%=très vif,   l: % lum, 100=blanc, a : opacité entre 0 et 1, ou 0% et 100%
