@@ -1,15 +1,14 @@
 @keyframes animationSpinLoader {
     to {
-        z-index:-1000; // pour placer le div derriere => a ne pas faire ca provoqueune saccade
+        z-index:-100; // pour placer le div derriere sinon rien ne serait cliquable sur la page
         opacity:0; // utile de mettre ca si  couleur de fond reste 
     }
 }
 
 @keyframes animationUnElement {
-    //from {transform: scale(0); opacity:0;}
-    //to{transform: scale(1); opacity:100%;}
-    100%{transform: rotate(1turn); opacity:0;}
-    to{transform: rotate(1turn); opacity:100%;}
+    from {transform: scale(0); opacity:0;}
+    to{transform: scale(1); opacity:100%;}
+
 }
 
 .spin-loader {
@@ -25,7 +24,7 @@
     animation-fill-mode:forwards; // both/backwards/forwards indique la façon dont une animation CSS doit appliquer les styles à sa cible avant et après son exécution.
     z-index:100;
     display:flex;
-    align-items:initial; // ou center... le fait de mettre initial et un padding-top itemcontainer donne l'effet d'acenceur
+    align-items:initial; // ou center... le fait de mettre initial et un padding-top aitemcontainer donne l'effet d'acenceur
     justify-content:center;
 
     &__itemContainer {
@@ -37,16 +36,14 @@
 
         &__item {
             text-align: center;
-            font-family: 'Shrikhand', sans-serif;            
-            @media screen and (max-width: 500px) {height: 40px;}
+            font-family: 'Shrikhand', sans-serif;
+            & span {font-family: 'Shrikhand', sans-serif;}
             font-size: 2.2em;
-            //transform:scale(0);
+            transform:scale(0);
             opacity:0;
-            animation: animationUnElement 1.5s;
+            animation: animationUnElement 1.9s;// car le delai du fondu est 2.5, donc il faut retirer le delai le plus long, et encore un peu pour que ca reste affiché un moment
             animation-fill-mode:forwards;
             animation-iteration-count:1; // nombre de fois ou l'animation boucle
-
-            & span {font-family: 'Shrikhand', sans-serif;}
             &--1 {
                & span {color:$colour-primary;}
             }    
@@ -63,6 +60,13 @@
 }
 
 
+
+
+
+
+
+
+
 .lieuEtFctionnment {
     /*background-color: yellow;*/
     display: grid;
@@ -71,6 +75,7 @@
 
     @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
         display:grid;
+
     }
     /* __ville et __explorer sont inclus  dans un meme div */
     & .lieu {
@@ -124,20 +129,9 @@
             }
         }
         &__listeFonctionnment {
-           /*max-width:400px;*/
+           max-width:400px;
            margin : auto;
-           padding: 0 20px 20px;
-            //flex-direction: row;
-            /*@media screen and (min-width: 1023px) {
-                flex-direction:column;
-               // justify-content: center;
-                align-items: center;
-               }*/
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-
-  
+           padding: 0 20px;
         }
      }
 }
@@ -153,10 +147,20 @@
     }
     &-liste {
         padding-bottom: 2em;
-        display: flex; 
-        flex-wrap: wrap;
-        justify-content: space-around; /*les éléments sont séparés avec de l'espace entre eux ;.*/
-        align-items: center; /* alignement vertical*/
+
+        @media screen and (min-width: 1023px) { /*sur grand écran = desktop */
+            /* pour que les restaurants s'affichent à la suite en mode desktop */
+            display: flex; /* flex-direction: row; par defaut */
+            flex-wrap: wrap;
+            justify-content: space-around; /*les éléments sont séparés avec de l'espace entre eux ;.*/
+            & .vignetteHaute {
+                height:90%;
+                & .imgbg {
+                background-size: 24.7em !important;
+                    height: 260px !important;
+                }
+            }
+        }
 
         &__lien{
             text-decoration: none;
@@ -169,17 +173,10 @@
                 display: flex;
                 background-color:white;
                 border-radius: 20px;
-                margin: 20px 5px 0px; /* auto pour centrer, on aurait pu aussi ne pas définir de max-width... */
+                margin: 20px auto 0px auto; /* auto pour centrer, on aurait pu aussi ne pas définir de max-width... */
                 padding: 0px;
-                //max-width: 340px; /* a voir */
+                max-width: 340px; /* a voir */
                 min-width: 240px;
-                @media screen and (min-width: 1023px) { /*sur grand écran = desktop  onf auit apapraitre les bground plus hait*/         
-                        height:90%;
-                        & .imgbg {
-                            background-size: 24.7em !important;
-                            height: 260px !important;
-                        }
-                }
                 box-shadow: $colour-box-shadow 0.12em 0.12em 0.05em;
 
                 &:hover{

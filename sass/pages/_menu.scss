@@ -53,18 +53,21 @@
             }
             &:hover>.menu__plat__survol {
                /* visibility:visible;*/
-                transition:all 0.4s ease-in-out;
+                transition:all 0.4s linear;  //ou ease-in-out
                 transform:translateX(-100%);
                 & .menu__plat__survol2{
-                    transform:rotate(-360deg);
-                    transition-duration:1s
+                    transform:rotate(360deg);
+                    transition-duration:1s;
                 }
 
              }
-            &:hover>.menu__plat__detail {
-                transform: scaleX(0.75); /* diminution de la taille du bloc détaillant le plat */
+             &:hover>.menu__plat__detail {
+                //transform: scaleX(0.75);  /*diminution de la taille du bloc détaillant le plat .. commenté pour ajouté les 2 ci dessous,c 'es tplus ce qu'on attent*/
+                width:75%;
+                overflow:hidden;
             }
-            .menu__plat__survol {
+
+            &__survol {
                 width: 20%;
                 height: 100%;
                 background-color: $colour-tertiary;
@@ -89,7 +92,7 @@ max-width: 350px;
             padding: 0 0 15px 15px;
             margin: 1rem;
             cursor: pointer;
-            overflow: hidden;
+            overflow: hidden; // pour pas voir la partie qu'on sort de la
             align-items: center;
             width: 100%;
             border-radius: 1.5rem;
@@ -99,11 +102,12 @@ max-width: 350px;
             animation: effet-affichage-menu 0.5s 0s ease-out forwards ; /* duréen delay, effet, animation-fill-mode : effet-affichage-men est une keyframe, sert a faire l'effet de transition souhaité */
             transition: all 1.5s;
             transform:translateY(+20%);
-            &:nth-child(2) { animation-delay: 0.2s; } /* delai pour déalage */
+            &:nth-child(2) { animation-delay: 0.2s; } /* delai pour décalage */
             &:nth-child(3) { animation-delay: 0.4s; }
             &:nth-child(4) { animation-delay: 0.6s; }
             &:nth-child(5) { animation-delay: 0.8s; }
             &:nth-child(6) { animation-delay: 1s; }
+
             &__titre {
                 font-size: 1.1em;
                 font-weight: bold;
@@ -111,10 +115,16 @@ max-width: 350px;
             &__detail {
                     display: flex;
                     justify-content: space-between;
- transition: transform 500ms;
- transform-origin: 0% 50%;
+ //transition: transform 500ms; pas de transofrm finalement....
+ //transform-origin: 0% 50%;
+// width:75%;
+
+                    & span {
+                        text-overflow: ellipsis; // por trois petites points... les 3 propriétés sont nécessaires
+                        overflow: hidden;
+                        white-space: nowrap;   
+                    }
                     &__prix {
-                        /*font-size: 1.05em;*/
                         font-weight: bold;
                         padding-right: 0.5rem;
                     }

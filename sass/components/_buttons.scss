@@ -1,5 +1,5 @@
 .bouton-action {
-    margin: 1.5rem 0 3rem 0;
+    margin: 1.5rem 1rem 3rem 1rem;
     border-radius: 2em;
     border: 0;
     box-shadow: 3px 3px 3px $colour-shadow-btn;
@@ -8,7 +8,7 @@
     padding: 1rem 1.9rem;
     background-image: radial-gradient(ellipse farthest-corner at 100px 0, $colour-secondary 0%, $colour-primary 100%);
     cursor: pointer;
-    min-width: 12em;
+    //min-width: 12em;
     font-weight: bold;
  
     &:hover{
@@ -20,11 +20,11 @@
 
 .bouton-fonctionnement {
     display: flex;
-    margin: 1.5rem 0 25px 0;
-    padding: 1.8rem 0 1.3rem 0;
+    margin: 1.5rem 1rem 0.5rem;
+    padding: 1.8rem 3rem 1.3rem 0;
     background-color: $colour-fond2;
     align-items: center; /* alignement vertical*/
-
+    //max-width: 20em; // 16 a plus petit
     border-radius: 1.5rem;
     box-shadow: 3px 3px 10px $colour-fond1; /* ombre porté */
 
